@@ -1,6 +1,6 @@
 (function() {
     const express = require("express");
-    const app = express();
+    const server = express();
 
     // make server write a no-cahce header
     function addNoCacheHeaders (request, response, next) {
@@ -10,7 +10,7 @@
         next();
     }
 
-    app.use(addNoCacheHeaders)
-    app.use(express.static(__dirname + "/app"));
-    app.listen(1337);
+    server.use(addNoCacheHeaders)
+    server.use(express.static(__dirname + "/app"));
+    server.listen(1337);
 })()
